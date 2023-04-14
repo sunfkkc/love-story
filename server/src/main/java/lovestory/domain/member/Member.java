@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lovestory.domain.BaseTimeEntity;
+import lovestory.domain.role.Role;
 
 import javax.persistence.*;
 
@@ -24,6 +25,10 @@ public class Member extends BaseTimeEntity {
 
     @Column
     private String picture;
+
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     @Builder
     public Member(String name, String email, String picture) {
