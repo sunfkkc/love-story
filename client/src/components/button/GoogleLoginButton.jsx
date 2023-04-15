@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import useScript from "../../hooks/useScript";
 
-const GoogleLoginButton = (callback) => {
+const GoogleLoginButton = ({ callback }) => {
   const googleSignInButton = useRef(null);
 
   useScript("https://accounts.google.com/gsi/client", () => {
