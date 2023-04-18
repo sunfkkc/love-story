@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpSession;
+
 import javax.validation.Valid;
 
 import lombok.RequiredArgsConstructor;
@@ -22,7 +22,7 @@ import lovestory.domain.member.Member;
 @RequiredArgsConstructor
 public class GoogleAuthController {
     private final GoogleAuthService googleAuthService;
-    private final HttpSession httpSession;
+
 
     @PostMapping("/api/v1/auth/google")
     public ResponseEntity<Object> member(@RequestBody @Valid RegisterRequest request, Errors errors){
