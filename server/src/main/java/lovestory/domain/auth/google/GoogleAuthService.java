@@ -13,11 +13,14 @@ import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.util.Collections;
 
+import lombok.RequiredArgsConstructor;
 import lovestory.domain.member.Member;
+import lovestory.domain.member.MemberRepository;
 import lovestory.domain.role.Role;
 
 
 @Service
+@RequiredArgsConstructor
 public class GoogleAuthService {
     @Value("${google-client-id}")
     private String CLIENT_ID;
@@ -25,7 +28,7 @@ public class GoogleAuthService {
     private final NetHttpTransport transport = new NetHttpTransport();
     private final JsonFactory jsonFactory = new GsonFactory();
 
-
+    private final MemberRepository memberRepository;
 
     public Member verifyToken(String token) {
 
@@ -51,6 +54,7 @@ public class GoogleAuthService {
                 String givenName = (String) payload.get("given_name");
 
                 Member member = Member.builder().name(name).email(email).picture(pictureUrl).role(Role.USER).build();
+                memberRepository.save(member);
                 return member;
 
 
