@@ -13,12 +13,10 @@ import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.util.Collections;
 
-import javax.servlet.http.HttpSession;
 
 import lombok.RequiredArgsConstructor;
-import lovestory.domain.auth.dto.SessionUser;
+import lovestory.domain.auth.OAuthService;
 import lovestory.domain.member.Member;
-import lovestory.domain.member.MemberRepository;
 import lovestory.domain.role.Role;
 
 
@@ -27,12 +25,9 @@ import lovestory.domain.role.Role;
 public class GoogleAuthService {
     @Value("${google-client-id}")
     private String CLIENT_ID;
-
     private final NetHttpTransport transport = new NetHttpTransport();
     private final JsonFactory jsonFactory = new GsonFactory();
-
-    private final MemberRepository memberRepository;
-    private final HttpSession httpSession;
+    private final OAuthService oAuthService;
 
     public Member verifyToken(String token) {
 
@@ -57,9 +52,8 @@ public class GoogleAuthService {
                 String familyName = (String) payload.get("family_name");
                 String givenName = (String) payload.get("given_name");
 
-                Member member = Member.builder().name(name).email(email).picture(pictureUrl).role(Role.USER).build();
-                httpSession.setAttribute("user",new SessionUser(member));
-                memberRepository.save(member);
+
+                Member member = oAuthService.saveOrUpdate(Member.builder().name(name).email(email).picture(pictureUrl).role(Role.USER).build());
                 return member;
 
 
