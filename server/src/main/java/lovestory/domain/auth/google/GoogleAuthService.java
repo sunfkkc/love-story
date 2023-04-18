@@ -16,7 +16,7 @@ import java.util.Collections;
 import javax.servlet.http.HttpSession;
 
 import lombok.RequiredArgsConstructor;
-import lovestory.domain.auth.SessionUser;
+import lovestory.domain.auth.dto.SessionUser;
 import lovestory.domain.member.Member;
 import lovestory.domain.member.MemberRepository;
 import lovestory.domain.role.Role;

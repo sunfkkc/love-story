@@ -1,4 +1,4 @@
-package lovestory.domain.auth;
+package lovestory.domain.auth.dto;
 
 import java.io.Serializable;
 
