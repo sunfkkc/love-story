@@ -1,4 +1,4 @@
-package lovestory.domain.auth.google.controller;
+package lovestory.domain.auth.google;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

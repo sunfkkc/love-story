@@ -2,10 +2,6 @@ package lovestory.domain.auth.google;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.jupiter.api.Test;
-
-import lovestory.domain.auth.google.controller.GoogleAuthController;
-
 public class GoogleAuthControllerTest {
 
 //    @Test
