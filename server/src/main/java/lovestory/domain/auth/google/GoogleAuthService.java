@@ -37,7 +37,7 @@ public class GoogleAuthService {
                 .build();
         try {
             GoogleIdToken idToken = verifier.verify(token);
-            if (idToken != null) {
+
                 Payload payload = idToken.getPayload();
 
                 // Print user identifier
@@ -58,16 +58,13 @@ public class GoogleAuthService {
                 return member;
 
 
-            } else {
-                System.out.println("Invalid ID token.");
-
-            }
         } catch (GeneralSecurityException e) {
             e.printStackTrace();
+            throw new VerifyTokenException();
         } catch (IOException e) {
             e.printStackTrace();
+            throw new VerifyTokenException();
         }
-        return new Member();
     }
 
 

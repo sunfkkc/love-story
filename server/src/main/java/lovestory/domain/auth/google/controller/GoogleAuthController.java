@@ -3,6 +3,7 @@ package lovestory.domain.auth.google.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,6 +14,7 @@ import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lovestory.config.ErrorResponse;
 import lovestory.domain.auth.google.GoogleAuthService;
+import lovestory.domain.auth.google.VerifyTokenException;
 import lovestory.domain.auth.google.RegisterRequest;
 import lovestory.domain.member.Member;
 
@@ -30,5 +32,10 @@ public class GoogleAuthController {
         Member member = googleAuthService.verifyToken(request.getToken());
         return ResponseEntity.status(HttpStatus.OK).body(member);
 
+    }
+
+    @ExceptionHandler(VerifyTokenException.class)
+    public ResponseEntity<Object> handleIllegalArgumentException(){
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new ErrorResponse("cannot verify token"));
     }
 }
