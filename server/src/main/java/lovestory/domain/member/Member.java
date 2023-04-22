@@ -1,18 +1,27 @@
 package lovestory.domain.member;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lovestory.domain.BaseTimeEntity;
-
-import javax.persistence.*;
 
 @Getter
 @NoArgsConstructor
 @Entity
 public class Member extends BaseTimeEntity {
 
+    @JsonIgnore
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,6 +29,7 @@ public class Member extends BaseTimeEntity {
     @Column(nullable = false)
     private String name;
 
+    @JsonIgnore
     @Column(nullable = false)
     private String pwd;
 
