@@ -1,7 +1,5 @@
 package lovestory.config.auth;
 
-import lombok.RequiredArgsConstructor;
-import lovestory.domain.role.Role;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -17,7 +15,11 @@ public class SecurityConfig{
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
-        return http.cors().and().build();
+        return http
+                .csrf().disable()
+                .headers().frameOptions().disable()
+                .and()
+                .cors().and().build();
     }
 
     @Bean
