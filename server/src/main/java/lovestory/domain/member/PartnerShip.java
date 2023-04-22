@@ -5,8 +5,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import lovestory.domain.BaseTimeEntity;
+
 @Entity
-public class PartnerShip {
+public class PartnerShip extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
