@@ -1,10 +1,10 @@
 package lovestory.domain.member;
 
+
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lovestory.domain.BaseTimeEntity;
-import lovestory.domain.role.Role;
 
 import javax.persistence.*;
 
@@ -21,20 +21,16 @@ public class Member extends BaseTimeEntity {
     private String name;
 
     @Column(nullable = false)
-    private String email;
+    private String pwd;
 
-    @Column
-    private String picture;
-
-    @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private Role role;
+    @OneToOne
+    @JoinColumn
+    private PartnerShip partnerShip;
 
     @Builder
-    public Member(String name, String email, String picture, Role role) {
+    public Member(String name, String pwd, PartnerShip partnerShip) {
         this.name = name;
-        this.email = email;
-        this.picture = picture;
-        this.role = role;
+        this.pwd = pwd;
+        this.partnerShip = partnerShip;
     }
 }
