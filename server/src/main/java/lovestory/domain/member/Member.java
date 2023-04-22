@@ -35,12 +35,12 @@ public class Member extends BaseTimeEntity {
 
     @OneToOne
     @JoinColumn
-    private PartnerShip partnerShip;
+    private Partnership partnership;
 
     @Builder
-    public Member(String name, String pwd, PartnerShip partnerShip) {
+    public Member(String name, String pwd, Partnership partnership) {
         this.name = name;
         this.pwd = pwd;
-        this.partnerShip = partnerShip;
+        this.partnership = partnership;
     }
 }
