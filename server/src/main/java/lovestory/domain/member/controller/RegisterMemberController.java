@@ -26,6 +26,6 @@ public class RegisterMemberController {
 
     @ExceptionHandler(DuplicatedMemberException.class)
     public ResponseEntity<ErrorResponse> handleDuplicated(){
-        return ResponseEntity.status(HttpStatus.CONFLICT).body(new ErrorResponse("duplicated member name"));
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(new ErrorResponse("이름 중복"));
     }
 }
