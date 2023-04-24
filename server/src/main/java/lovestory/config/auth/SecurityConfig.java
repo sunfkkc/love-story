@@ -2,6 +2,7 @@ package lovestory.config.auth;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
@@ -19,6 +20,7 @@ public class SecurityConfig{
                 .csrf().disable()
                 .headers().frameOptions().disable()
                 .and()
+
                 .cors().and().build();
     }
 
@@ -30,6 +32,7 @@ public class SecurityConfig{
         configuration.addAllowedHeader("*");
         configuration.addAllowedMethod("*");
         configuration.setAllowCredentials(true);
+        configuration.setMaxAge(24*3600l);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
