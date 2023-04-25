@@ -33,6 +33,7 @@ public class SecurityConfig{
         configuration.addAllowedMethod("*");
         configuration.setAllowCredentials(true);
         configuration.setMaxAge(24*3600l);
+        configuration.addAllowedOrigin("http://localhost:3000");
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);

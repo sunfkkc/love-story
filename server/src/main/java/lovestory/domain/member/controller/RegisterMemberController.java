@@ -14,13 +14,17 @@ import lovestory.domain.member.Member;
 import lovestory.domain.member.dto.RegisterMemberDto;
 import lovestory.domain.member.service.RegisterMemberService;
 
+import javax.servlet.http.HttpSession;
+
 @RequiredArgsConstructor
 @RestController
 public class RegisterMemberController {
     private final RegisterMemberService registerMemberService;
+    private final HttpSession httpSession;
     @PostMapping("/api/v1/auth/register")
     public ResponseEntity<Member> register(@RequestBody RegisterMemberDto registerMemberDto){
         Member member= registerMemberService.save(registerMemberDto);
+        httpSession.setAttribute("user",member);
         return ResponseEntity.status(HttpStatus.OK).body(member);
     }
 
