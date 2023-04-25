@@ -1,5 +1,6 @@
-package lovestory.domain.member;
+package lovestory.repository;
 
+import lovestory.domain.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

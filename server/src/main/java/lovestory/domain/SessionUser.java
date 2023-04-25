@@ -1,9 +1,9 @@
-package lovestory.domain.auth.dto;
+package lovestory.domain;
 
 import java.io.Serializable;
 
 import lombok.Getter;
-import lovestory.domain.member.Member;
+import lovestory.domain.Member;
 
 @Getter
 public class SessionUser implements Serializable {

@@ -1,4 +1,4 @@
-package lovestory.domain.role;
+package lovestory.domain;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

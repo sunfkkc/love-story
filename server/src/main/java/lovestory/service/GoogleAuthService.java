@@ -1,4 +1,4 @@
-package lovestory.domain.auth.google;
+package lovestory.service;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken.Payload;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdTokenVerifier;
@@ -6,6 +6,7 @@ import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.gson.GsonFactory;
 
+import lovestory.exception.VerifyTokenException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -15,9 +16,8 @@ import java.util.Collections;
 
 
 import lombok.RequiredArgsConstructor;
-import lovestory.domain.auth.OAuthService;
-import lovestory.domain.member.Member;
-import lovestory.domain.role.Role;
+import lovestory.domain.Member;
+import lovestory.domain.Role;
 
 
 @Service

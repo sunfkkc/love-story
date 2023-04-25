@@ -1,13 +1,13 @@
-package lovestory.domain.auth;
+package lovestory.service;
 
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
 
 import lombok.RequiredArgsConstructor;
-import lovestory.domain.auth.dto.SessionUser;
-import lovestory.domain.member.Member;
-import lovestory.domain.member.MemberRepository;
+import lovestory.domain.SessionUser;
+import lovestory.domain.Member;
+import lovestory.repository.MemberRepository;
 
 @Service
 @RequiredArgsConstructor

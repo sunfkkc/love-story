@@ -1,5 +1,8 @@
-package lovestory.domain.auth.google;
+package lovestory.controller;
 
+import lovestory.service.GoogleAuthService;
+import lovestory.dto.RegisterRequest;
+import lovestory.exception.VerifyTokenException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
@@ -12,11 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 
 import lombok.RequiredArgsConstructor;
-import lovestory.config.ErrorResponse;
-import lovestory.domain.auth.google.GoogleAuthService;
-import lovestory.domain.auth.google.VerifyTokenException;
-import lovestory.domain.auth.google.RegisterRequest;
-import lovestory.domain.member.Member;
+import lovestory.exception.ErrorResponse;
+import lovestory.domain.Member;
 
 @RestController
 @RequiredArgsConstructor

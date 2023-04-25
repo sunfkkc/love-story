@@ -1,4 +1,4 @@
-package lovestory.domain.auth.google;
+package lovestory.dto;
 
 import javax.validation.constraints.NotBlank;
 

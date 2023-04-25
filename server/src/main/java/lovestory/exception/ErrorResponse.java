@@ -1,4 +1,4 @@
-package lovestory.config;
+package lovestory.exception;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

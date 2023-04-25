@@ -1,12 +1,10 @@
-package lovestory.domain.member;
+package lovestory.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lovestory.domain.BaseTimeEntity;
-import lovestory.domain.role.Role;
 
 import javax.persistence.*;
 

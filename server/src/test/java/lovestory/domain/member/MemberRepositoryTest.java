@@ -2,7 +2,9 @@ package lovestory.domain.member;
 
 
 
-import lovestory.domain.role.Role;
+import lovestory.domain.Member;
+import lovestory.domain.Role;
+import lovestory.repository.MemberRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

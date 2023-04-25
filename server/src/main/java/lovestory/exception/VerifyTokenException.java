@@ -1,4 +1,4 @@
-package lovestory.domain.auth.google;
+package lovestory.exception;
 
 public class VerifyTokenException extends RuntimeException{
 }
